@@ -17,12 +17,56 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testCrop()
+  {
+    Picture beach = new Picture("beach.jpg");
+    Picture shrek = new Picture("snowman.jpg");
+    beach.explore();
+    shrek.explore();
+    beach.crop( shrek, 10, 200, 10, 200, 100, 100 );
+    beach.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
-    caterpillar.mirrorVertical();
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
+  
+   public static void testGrayscale()
+  {
+    Picture caterpillar = new Picture("beach.jpg");
+    caterpillar.explore();
+    caterpillar.grayscale();
+    caterpillar.explore();
+  }
+  
+  public static void testWater()
+  {
+    Picture caterpillar = new Picture("water.jpg");
+    caterpillar.explore();
+    caterpillar.water();
+    caterpillar.explore();
+  }
+  
+  /** Method to test mirrorVertical */
+  public static void testMirrorHorizontal()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontalBotToTop();
+    caterpillar.explore();
+  }
+  
+  /** Method to test mirrorVertical */
+  public static void testMirrorDiagonal()
+  {
+    Picture caterpillar = new Picture("beach.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorDiagonal();
     caterpillar.explore();
   }
   
@@ -35,14 +79,39 @@ public class PictureTester
     temple.explore();
   }
   
-  /** Method to test the collage method */
-  public static void testCollage()
+  public static void testMirrorArms()
   {
-    Picture canvas = new Picture("640x480.jpg");
-    canvas.createCollage();
-    canvas.explore();
+    Picture temple = new Picture("snowman.jpg");
+    temple.explore();
+    temple.mirrorArms();
+    temple.explore();
   }
   
+
+  /* Main method for testing - each class in Java can have a main 
+     * method 
+     */
+    public static void createShrekCollage() 
+    {
+        Picture main = new Picture("Confused.jpg");
+        Picture pic1 = main.scale().rotateCounterClockwise();
+        Picture pic2 = main.scale().rotateCounterClockwise();
+        Picture pic3 = main.scale().rotateClockwise();
+        Picture pic4 = main.scale().rotateClockwise();
+        pic1.grayscale();
+        pic1.mirrorVertical();
+        pic2.pixelate();
+        pic3.sepia();
+        pic3.mirrorHorizontal();
+        pic4.zeroGreen();
+        pic4.halfRed();
+        main.copy(pic1,0,270);
+        main.copy(pic2,310,270);
+        main.copy(pic3,0,870);
+        main.copy(pic4,310,870);
+        main.explore();
+        main.write("H:\\GitHub\\unit6MediaComp\\PictureLab\\images\\MyCollage.jpg");
+    }
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -50,6 +119,23 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
+  
+  public static void testScale()
+  {
+    Picture swan = new Picture("Confused.jpg");
+    swan.explore();
+    swan.scale().explore();
+  }
+  
+  public static void testRotate()
+  {
+    Picture swan = new Picture("Confused.jpg");
+    swan.explore();
+    swan.scale().rotateCounterClockwise().explore();
+    swan.scale().rotateClockwise().explore();
+  }
+  
+ 
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -65,7 +151,7 @@ public class PictureTester
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
-    //testMirrorVertical();
+    testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
