@@ -110,7 +110,7 @@ public class PictureTester
         main.copy(pic3,0,870);
         main.copy(pic4,310,870);
         main.explore();
-        main.write("H:\\GitHub\\unit6MediaComp\\PictureLab\\images\\MyCollage.jpg");
+        main.write("C:\\Users\\arin8_000\\Desktop\\PictureLab\\images\\MyCollage.jpg");
     }
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
